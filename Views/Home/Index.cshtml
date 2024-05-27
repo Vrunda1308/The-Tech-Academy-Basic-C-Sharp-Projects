@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        @{ 
+            Console.WriteLine("Welcome to Package Express. Please follow the instructions below.");
+
+            Console.WriteLine("Please enter the package weight:");
+            int weight = Convert.ToInt32(Console.ReadLine());
+
+            if (weight > 50)
+            {
+                Console.WriteLine("Package too heavy to be shipped via Package Express. Have a good day.");
+                return;
+            }
+
+            Console.WriteLine("Please enter the package width:");
+            int width = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Please enter the package height:");
+            int height = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Please enter the package length:");
+            int length = Convert.ToInt32(Console.ReadLine());
+
+            int dimensionsTotal = width + height + length;
+
+            if (dimensionsTotal > 50)
+            {
+                Console.WriteLine("Package too big to be shipped via Package Express.");
+                return;
+            }
+
+            decimal quote = (width * height * length * weight) / 100;
+
+            Console.WriteLine("Your estimated total for shipping this package is: $" + quote.ToString("0.00"));
+            Console.WriteLine("Thank you!");
+        }
+    </div>
+</div>
